@@ -33,6 +33,12 @@ import com.yiguo.qiakr.open.qdk4j.response.store.GetSupplierStoresResp;
  * @author yhzdys
  */
 public class QiakrApiAccess {
+    private final SerializerFeature STR_FEATURE = SerializerFeature.WriteNonStringValueAsString;
+    private QiakrApiClient client;
+
+    public void setClient(QiakrApiClient client) {
+        this.client = client;
+    }
 
     public AccessTokenResp getAccessToken() {
         return client.getAccessToken();
@@ -48,7 +54,7 @@ public class QiakrApiAccess {
     /* 商品相关接口 */
     public GetBrandListResp getBrandList(GetBrandListReq req, String accessToken) {
         return client.doRequest(
-                "/brand/getBrandList.json", accessToken, req, STR_FEATURE, GetBrandListResp.class
+                "/brand/getBrandList.json", accessToken, req, this.STR_FEATURE, GetBrandListResp.class
         );
     }
 
@@ -60,7 +66,7 @@ public class QiakrApiAccess {
 
     public CreateSupplierStockResp createSupplierStock(CreateSupplierStockReq req, String accessToken) {
         return client.doRequest(
-                "/stock/createSupplierStock.json", accessToken, req, STR_FEATURE, CreateSupplierStockResp.class
+                "/stock/createSupplierStock.json", accessToken, req, this.STR_FEATURE, CreateSupplierStockResp.class
         );
     }
 
@@ -104,20 +110,13 @@ public class QiakrApiAccess {
 
     public GetRefundOrderListResp getRefundOrderList(GetRefundOrderListReq req, String accessToken) {
         return client.doRequest(
-                "/order/getRefundOrderList.json", accessToken, req, STR_FEATURE, GetRefundOrderListResp.class
+                "/order/getRefundOrderList.json", accessToken, req, this.STR_FEATURE, GetRefundOrderListResp.class
         );
     }
 
     public BaseResp updateOrderToDeliveryStatus(UpdateOrderToDeliveryStatusReq req, String accessToken) {
         return client.doRequest(
-                "/order/updateOrderToDeliveryStatus.json", accessToken, req, STR_FEATURE, BaseResp.class
+                "/order/updateOrderToDeliveryStatus.json", accessToken, req, this.STR_FEATURE, BaseResp.class
         );
-    }
-
-    private static final SerializerFeature STR_FEATURE = SerializerFeature.WriteNonStringValueAsString;
-    private QiakrApiClient client;
-
-    public void setClient(QiakrApiClient client) {
-        this.client = client;
     }
 }

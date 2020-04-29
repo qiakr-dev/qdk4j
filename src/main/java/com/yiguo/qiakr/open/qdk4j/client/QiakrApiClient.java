@@ -18,47 +18,6 @@ import org.slf4j.LoggerFactory;
  * @author yhzdys
  */
 public final class QiakrApiClient {
-
-    AccessTokenResp getAccessToken() {
-        AccessTokenReq req = new AccessTokenReq(this.appId, this.appSecret);
-        req.checkReq();
-        String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
-        String reqBody = req.toJSONStr();
-        if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
-        }
-        AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
-        if (this.checkResp) {
-            resp.checkResp();
-        }
-        return resp;
-    }
-
-    public <T extends BaseReq, R extends BaseResp> R doRequest(String path,
-                                                               String accessToken,
-                                                               T req,
-                                                               SerializerFeature feature,
-                                                               Class<R> respClazz) {
-        if (req == null) {
-            throw new QiakrApiException("reqData may not be null");
-        }
-        if (QiakrStringUtil.isEmpty(accessToken)) {
-            throw new QiakrApiException("accessToken may not be null");
-        }
-        // 请求参数检查，前置拦截非法传参
-        req.checkReq();
-        String reqUrl = this.api + "?appId=" + this.appId + "&accessToken=" + accessToken;
-        String reqBody = req.toJSONStr(feature);
-        if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
-        }
-        R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
-        if (this.checkResp) {
-            resp.checkResp();
-        }
-        return resp;
-    }
-
     private static final Logger logger = LoggerFactory.getLogger(QiakrApiClient.class);
     private String appId;
     private String appSecret;
@@ -104,5 +63,45 @@ public final class QiakrApiClient {
 
     public void setCheckResp(boolean checkResp) {
         this.checkResp = checkResp;
+    }
+
+    AccessTokenResp getAccessToken() {
+        AccessTokenReq req = new AccessTokenReq(this.appId, this.appSecret);
+        req.checkReq();
+        String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
+        String reqBody = req.toJSONStr();
+        if (this.enLog) {
+            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+        }
+        AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
+        if (this.checkResp) {
+            resp.checkResp();
+        }
+        return resp;
+    }
+
+    public <T extends BaseReq, R extends BaseResp> R doRequest(String path,
+                                                               String accessToken,
+                                                               T req,
+                                                               SerializerFeature feature,
+                                                               Class<R> respClazz) {
+        if (req == null) {
+            throw new QiakrApiException("reqData may not be null");
+        }
+        if (QiakrStringUtil.isEmpty(accessToken)) {
+            throw new QiakrApiException("accessToken may not be null");
+        }
+        // 请求参数检查，前置拦截非法传参
+        req.checkReq();
+        String reqUrl = this.api + "?appId=" + this.appId + "&accessToken=" + accessToken;
+        String reqBody = req.toJSONStr(feature);
+        if (this.enLog) {
+            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+        }
+        R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
+        if (this.checkResp) {
+            resp.checkResp();
+        }
+        return resp;
     }
 }

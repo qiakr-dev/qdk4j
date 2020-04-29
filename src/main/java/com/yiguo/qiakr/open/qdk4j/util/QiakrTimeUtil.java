@@ -38,5 +38,4 @@ public final class QiakrTimeUtil {
     public static Date addSecond(Date date, int second) {
         return new Date(date.getTime() + (second * 1000L));
     }
-
 }

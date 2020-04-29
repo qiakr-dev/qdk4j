@@ -11,5 +11,4 @@ public final class QiakrStringUtil {
     public static boolean isEmpty(String source) {
         return source == null || "".equals(source);
     }
-
 }
