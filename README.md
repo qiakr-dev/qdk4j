@@ -26,22 +26,30 @@
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
 ***
-#### 添加Maven Dependency
+#### 修改Maven settings.xml
+~~~xml
+<servers>
+    <server>
+        <id>qdk4j</id>
+        <username>qiakr-dev</username>
+        <password>a5f7dc2735ca919f721c2d23c388de3cbab27bdf</password>
+    </server>
+</servers>
+~~~
+#### 修改pom.xml
 ~~~xml
 <repositories>
     <repository>
-        <id>github</id>
+        <id>qiakr-github</id>
         <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
     </repository>
 </repositories>
-~~~
-***
-~~~xml
+
 <dependencies>
     <dependency>
         <groupId>com.yiguo.qiakr</groupId>
         <artifactId>qdk4j</artifactId>
-        <version>1.2.0.RELEASE</version>
+        <version>1.2.1.RELEASE</version>
     </dependency>
 </dependencies>
 ~~~
