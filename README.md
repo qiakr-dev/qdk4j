@@ -6,6 +6,9 @@
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.1.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.授权github packages下载
+
 ##### &emsp;1.2.0.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.支持github packages特性
 
@@ -26,22 +29,30 @@
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
 ***
-#### 添加Maven Dependency
+#### 修改Maven settings.xml
+~~~xml
+<servers>
+    <server>
+        <id>qiakr</id>
+        <username>qiakr-dev</username>
+        <password>eb1c513731eae5bb2c044e243d988b01dc6d2d68</password>
+    </server>
+</servers>
+~~~
+#### 修改pom.xml
 ~~~xml
 <repositories>
     <repository>
-        <id>github</id>
+        <id>qiakr</id>
         <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
     </repository>
 </repositories>
-~~~
-***
-~~~xml
+
 <dependencies>
     <dependency>
         <groupId>com.yiguo.qiakr</groupId>
         <artifactId>qdk4j</artifactId>
-        <version>1.2.0.RELEASE</version>
+        <version>1.2.1.RELEASE</version>
     </dependency>
 </dependencies>
 ~~~
