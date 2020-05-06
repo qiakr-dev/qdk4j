@@ -6,6 +6,9 @@
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.0.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.支持github packages特性
+
 ##### &emsp;1.1.0.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.请求自动校错全覆盖
 ###### &emsp;&emsp;&emsp;1.优化接口请求逻辑，错误修复
@@ -21,6 +24,27 @@
 ***
 ### QuickStart
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
+
+***
+#### 添加Maven Dependency
+~~~xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
+    </repository>
+</repositories>
+~~~
+***
+~~~xml
+<dependencies>
+    <dependency>
+        <groupId>com.yiguo.qiakr</groupId>
+        <artifactId>qdk4j</artifactId>
+        <version>1.2.0.RELEASE</version>
+    </dependency>
+</dependencies>
+~~~
 
 ***
 #### Java原生配置
