@@ -5,29 +5,6 @@
 ##### &emsp;简单配置，快速集成，完成洽客开放平台对接
 
 ***
-### ReleaseNote
-##### &emsp;1.2.2.RAELEASE:&emsp;
-###### &emsp;&emsp;&emsp;1.QiakrApiClient错误修复
-
-##### &emsp;1.2.1.RAELEASE:&emsp;
-###### &emsp;&emsp;&emsp;1.授权github packages下载
-
-##### &emsp;1.2.0.RAELEASE:&emsp;
-###### &emsp;&emsp;&emsp;1.支持github packages特性
-
-##### &emsp;1.1.0.RAELEASE:&emsp;
-###### &emsp;&emsp;&emsp;1.请求自动校错全覆盖
-###### &emsp;&emsp;&emsp;1.优化接口请求逻辑，错误修复
-
-##### &emsp;1.0.1.RAELEASE:&emsp;
-###### &emsp;&emsp;&emsp;1.支持自定义接口请求
-###### &emsp;&emsp;&emsp;2.新增特性-请求自动校错
-###### &emsp;&emsp;&emsp;3.批量更新库存接口支持自动校错
-
-##### &emsp;1.0.0.RAELEASE:
-###### &emsp;&emsp;&emsp;1.QDK发布，集成大部分API
-
-***
 ### QuickStart
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
@@ -55,7 +32,7 @@
     <dependency>
         <groupId>com.yiguo.qiakr</groupId>
         <artifactId>qdk4j</artifactId>
-        <version>1.2.1.RELEASE</version>
+        <version>1.2.3.RELEASE</version>
     </dependency>
 </dependencies>
 ~~~
@@ -253,3 +230,29 @@ GetRefundOrderListReq req10 = new GetRefundOrderListReq()
 GetRefundOrderListResp resp10 = qiakrApiAccess.getRefundOrderList(req10, accessToken);
 System.out.println(resp10.toJSONStr());
 ~~~
+
+***
+### ReleaseNote
+##### &emsp;1.2.3.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.QiakrApiClient构造函数提供默认值
+
+##### &emsp;1.2.2.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.QiakrApiClient错误修复
+
+##### &emsp;1.2.1.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.授权github packages下载
+
+##### &emsp;1.2.0.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.支持github packages特性
+
+##### &emsp;1.1.0.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.请求自动校错全覆盖
+###### &emsp;&emsp;&emsp;1.优化接口请求逻辑，错误修复
+
+##### &emsp;1.0.1.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.支持自定义接口请求
+###### &emsp;&emsp;&emsp;2.新增特性-请求自动校错
+###### &emsp;&emsp;&emsp;3.批量更新库存接口支持自动校错
+
+##### &emsp;1.0.0.RAELEASE:
+###### &emsp;&emsp;&emsp;1.QDK发布，集成大部分API
