@@ -6,6 +6,9 @@
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.0.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.支持github packages特性
+
 ##### &emsp;1.1.0.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.请求自动校错全覆盖
 ###### &emsp;&emsp;&emsp;1.优化接口请求逻辑，错误修复
