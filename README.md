@@ -6,6 +6,9 @@
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.1.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.授权github packages下载
+
 ##### &emsp;1.2.0.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.支持github packages特性
 
@@ -30,9 +33,9 @@
 ~~~xml
 <servers>
     <server>
-        <id>qdk4j</id>
+        <id>qiakr</id>
         <username>qiakr-dev</username>
-        <password>a5f7dc2735ca919f721c2d23c388de3cbab27bdf</password>
+        <password>eb1c513731eae5bb2c044e243d988b01dc6d2d68</password>
     </server>
 </servers>
 ~~~
@@ -40,7 +43,7 @@
 ~~~xml
 <repositories>
     <repository>
-        <id>qiakr-github</id>
+        <id>qiakr</id>
         <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
     </repository>
 </repositories>
