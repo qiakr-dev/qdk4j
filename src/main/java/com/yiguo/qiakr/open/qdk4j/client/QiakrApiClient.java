@@ -93,7 +93,7 @@ public final class QiakrApiClient {
         }
         // 请求参数检查，前置拦截非法传参
         req.checkReq();
-        String reqUrl = this.api + "?appId=" + this.appId + "&accessToken=" + accessToken;
+        String reqUrl = this.api + path + "?appId=" + this.appId + "&accessToken=" + accessToken;
         String reqBody = req.toJSONStr(feature);
         if (this.enLog) {
             logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);

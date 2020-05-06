@@ -6,6 +6,9 @@
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.2.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.QiakrApiClient错误修复
+
 ##### &emsp;1.2.1.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.授权github packages下载
 
