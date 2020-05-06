@@ -23,6 +23,27 @@
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
 ***
+#### 添加Maven Dependency
+~~~xml
+<repositories>
+    <repository>
+        <id>github</id>
+        <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
+    </repository>
+</repositories>
+~~~
+***
+~~~xml
+<dependencies>
+    <dependency>
+        <groupId>com.yiguo.qiakr</groupId>
+        <artifactId>qdk4j</artifactId>
+        <version>1.2.0.RELEASE</version>
+    </dependency>
+</dependencies>
+~~~
+
+***
 #### Java原生配置
 ~~~java
 // 初始化ApiClient
