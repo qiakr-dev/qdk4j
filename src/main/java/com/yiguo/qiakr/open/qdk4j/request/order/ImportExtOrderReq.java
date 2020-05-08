@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  *
  * @author yhzdys

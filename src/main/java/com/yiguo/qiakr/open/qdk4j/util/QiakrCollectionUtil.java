@@ -3,7 +3,7 @@ package com.yiguo.qiakr.open.qdk4j.util;
 import java.util.Collection;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  *
  * @author yhzdys

@@ -4,15 +4,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 时间操作工具类
  *
  * @author yhzdys
  */
 public final class QiakrTimeUtil {
-
-
     public static final SimpleDateFormat DATE_TIME = new SimpleDateFormat("yyyyMMddHHmmss");
     public static final SimpleDateFormat DATE = new SimpleDateFormat("yyyyMMdd");
 

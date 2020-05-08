@@ -6,7 +6,7 @@ import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import java.io.Serializable;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 接口返回父类
  *

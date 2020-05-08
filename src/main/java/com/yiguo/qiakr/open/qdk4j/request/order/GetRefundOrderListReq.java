@@ -4,7 +4,7 @@ import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  *
  * @author yhzdys

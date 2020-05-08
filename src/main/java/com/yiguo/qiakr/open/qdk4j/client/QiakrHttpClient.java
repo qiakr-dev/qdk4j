@@ -11,7 +11,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import java.nio.charset.StandardCharsets;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 洽客http请求客户端
  *

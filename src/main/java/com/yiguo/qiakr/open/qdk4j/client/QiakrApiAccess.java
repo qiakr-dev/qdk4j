@@ -26,7 +26,7 @@ import com.yiguo.qiakr.open.qdk4j.response.product.GetCategoryListResp;
 import com.yiguo.qiakr.open.qdk4j.response.store.GetSupplierStoresResp;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 洽客api访问
  *

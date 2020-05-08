@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 洽客api客户端
  *
@@ -65,6 +65,9 @@ public final class QiakrApiClient {
         this.checkResp = checkResp;
     }
 
+    /**
+     * 获取洽客api访问令牌
+     */
     AccessTokenResp getAccessToken() {
         AccessTokenReq req = new AccessTokenReq(this.appId, this.appSecret);
         req.checkReq();
@@ -80,6 +83,15 @@ public final class QiakrApiClient {
         return resp;
     }
 
+    /**
+     * 开始请求洽客api接口
+     *
+     * @param path        接口地址
+     * @param accessToken 访问令牌
+     * @param req         请求数据对象
+     * @param feature     序列化方式
+     * @param respClazz   返回数据对象
+     */
     public <T extends BaseReq, R extends BaseResp> R doRequest(String path,
                                                                String accessToken,
                                                                T req,

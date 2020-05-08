@@ -6,7 +6,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 import java.io.Serializable;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 接口请求父类
  *
@@ -23,9 +23,6 @@ public class BaseReq implements Serializable {
     }
 
     public String toJSONStr(SerializerFeature feature) {
-        if (feature == null) {
-            return JSON.toJSONString(this);
-        }
         return JSON.toJSONString(this, feature);
     }
 }
