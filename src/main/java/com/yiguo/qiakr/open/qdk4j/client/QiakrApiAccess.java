@@ -126,7 +126,7 @@ public class QiakrApiAccess {
     /* 优惠券 */
     public GetCustomerCouponFlowResp getCustomerCouponFlow(GetCustomerCouponFlowReq req, String accessToken) {
         return this.client.doRequest(
-                "/coupon/getCustomerCouponFlow.json", accessToken, req, null, GetCustomerCouponFlowResp.class
+                "/coupon/getCustomerCouponFlow.json", accessToken, req, this.STR_FEATURE, GetCustomerCouponFlowResp.class
         );
     }
 
