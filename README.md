@@ -9,35 +9,6 @@
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
 ***
-#### 修改Maven settings.xml
-~~~xml
-<servers>
-    <server>
-        <id>qiakr</id>
-        <username>qiakr-dev</username>
-        <password>eb1c513731eae5bb2c044e243d988b01dc6d2d68</password>
-    </server>
-</servers>
-~~~
-#### 修改pom.xml
-~~~xml
-<repositories>
-    <repository>
-        <id>qiakr</id>
-        <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>com.yiguo.qiakr</groupId>
-        <artifactId>qdk4j</artifactId>
-        <version>1.2.3.RELEASE</version>
-    </dependency>
-</dependencies>
-~~~
-
-***
 #### Java原生配置
 ~~~java
 // 初始化ApiClient
