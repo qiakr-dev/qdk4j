@@ -200,6 +200,17 @@ GetRefundOrderListReq req10 = new GetRefundOrderListReq()
         .setLength(10);
 GetRefundOrderListResp resp10 = qiakrApiAccess.getRefundOrderList(req10, accessToken);
 System.out.println(resp10.toJSONStr());
+
+// 获取会员优惠券流水
+Date to21 = new Date();
+Date from21 = QiakrTimeUtil.addDay(to10, -10);
+GetCustomerCouponFlowReq req21 = new GetCustomerCouponFlowReq()
+        .setActionTimeFrom(QiakrTimeUtil.fsDate(from21, QiakrTimeUtil.DATE_TIME))
+        .setActionTimeTo(QiakrTimeUtil.fsDate(to21, QiakrTimeUtil.DATE_TIME))
+        .setIndex(0)
+        .setLength(10);
+GetCustomerCouponFlowResp resp21 = qiakrApiAccess.getCustomerCouponFlow(req21, accessToken);
+System.out.println(resp21.toJSONStr());
 ~~~
 
 ***
