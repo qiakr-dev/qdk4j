@@ -3,6 +3,9 @@ package com.yiguo.qiakr.open.qdk4j.request.product;
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 import com.yiguo.qiakr.open.qdk4j.util.QiakrCollectionUtil;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -12,6 +15,9 @@ import java.util.List;
  *
  * @author yhzdys
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 public final class BatchUpdateSupplierStockReq extends BaseReq {
     private static final long serialVersionUID = 1L;
     private List<UpdateSupplierStockSkuReq> stockSkuList;
@@ -27,14 +33,5 @@ public final class BatchUpdateSupplierStockReq extends BaseReq {
         for (UpdateSupplierStockSkuReq updateSupplierStockSkuReq : this.stockSkuList) {
             updateSupplierStockSkuReq.checkReq();
         }
-    }
-
-    public List<UpdateSupplierStockSkuReq> getStockSkuList() {
-        return stockSkuList;
-    }
-
-    public BatchUpdateSupplierStockReq setStockSkuList(List<UpdateSupplierStockSkuReq> stockSkuList) {
-        this.stockSkuList = stockSkuList;
-        return this;
     }
 }

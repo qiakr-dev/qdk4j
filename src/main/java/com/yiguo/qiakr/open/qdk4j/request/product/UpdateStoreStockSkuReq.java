@@ -3,6 +3,9 @@ package com.yiguo.qiakr.open.qdk4j.request.product;
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 import com.yiguo.qiakr.open.qdk4j.util.QiakrStringUtil;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 
@@ -12,6 +15,9 @@ import java.math.BigDecimal;
  *
  * @author yhzdys
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 public final class UpdateStoreStockSkuReq extends BaseReq {
     private static final long serialVersionUID = 1L;
     private String skuCode;
@@ -23,7 +29,7 @@ public final class UpdateStoreStockSkuReq extends BaseReq {
 
     @Override
     public void checkReq() {
-        if (QiakrStringUtil.isEmpty(this.skuCode) && QiakrStringUtil.isEmpty(this.shapeCode)) {
+        if (QiakrStringUtil.isAllEmpty(this.skuCode, this.shapeCode)) {
             throw new QiakrApiException("skuCode or shapeCode may not be null");
         }
         if (this.storeId == null && QiakrStringUtil.isEmpty(this.storeCode)) {
@@ -38,67 +44,5 @@ public final class UpdateStoreStockSkuReq extends BaseReq {
         if (this.skuPrice != null && this.skuPrice.compareTo(BigDecimal.ZERO) < 0) {
             throw new QiakrApiException("skuPrice must be greater than 0.00");
         }
-    }
-
-    public UpdateStoreStockSkuReq() {
-    }
-
-    public UpdateStoreStockSkuReq(String skuCode, String storeCode) {
-        this.skuCode = skuCode;
-        this.storeCode = storeCode;
-    }
-
-    public String getSkuCode() {
-        return skuCode;
-    }
-
-    public UpdateStoreStockSkuReq setSkuCode(String skuCode) {
-        this.skuCode = skuCode;
-        return this;
-    }
-
-    public String getShapeCode() {
-        return shapeCode;
-    }
-
-    public UpdateStoreStockSkuReq setShapeCode(String shapeCode) {
-        this.shapeCode = shapeCode;
-        return this;
-    }
-
-    public Integer getSkuCount() {
-        return skuCount;
-    }
-
-    public UpdateStoreStockSkuReq setSkuCount(Integer skuCount) {
-        this.skuCount = skuCount;
-        return this;
-    }
-
-    public BigDecimal getSkuPrice() {
-        return skuPrice;
-    }
-
-    public UpdateStoreStockSkuReq setSkuPrice(BigDecimal skuPrice) {
-        this.skuPrice = skuPrice;
-        return this;
-    }
-
-    public Long getStoreId() {
-        return storeId;
-    }
-
-    public UpdateStoreStockSkuReq setStoreId(Long storeId) {
-        this.storeId = storeId;
-        return this;
-    }
-
-    public String getStoreCode() {
-        return storeCode;
-    }
-
-    public UpdateStoreStockSkuReq setStoreCode(String storeCode) {
-        this.storeCode = storeCode;
-        return this;
     }
 }

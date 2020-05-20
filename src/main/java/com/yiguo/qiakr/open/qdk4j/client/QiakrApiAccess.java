@@ -24,6 +24,7 @@ import com.yiguo.qiakr.open.qdk4j.response.product.CreateSupplierStockResp;
 import com.yiguo.qiakr.open.qdk4j.response.product.GetBrandListResp;
 import com.yiguo.qiakr.open.qdk4j.response.product.GetCategoryListResp;
 import com.yiguo.qiakr.open.qdk4j.response.store.GetSupplierStoresResp;
+import lombok.Setter;
 
 /**
  * www.qiakr.com
@@ -32,13 +33,10 @@ import com.yiguo.qiakr.open.qdk4j.response.store.GetSupplierStoresResp;
  *
  * @author yhzdys
  */
+@Setter
 public class QiakrApiAccess {
     private final SerializerFeature STR_FEATURE = SerializerFeature.WriteNonStringValueAsString;
     private QiakrApiClient client;
-
-    public void setClient(QiakrApiClient client) {
-        this.client = client;
-    }
 
     public AccessTokenResp getAccessToken() {
         return this.client.getAccessToken();

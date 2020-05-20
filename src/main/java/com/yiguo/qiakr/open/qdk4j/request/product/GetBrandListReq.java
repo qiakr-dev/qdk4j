@@ -3,6 +3,9 @@ package com.yiguo.qiakr.open.qdk4j.request.product;
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 import com.yiguo.qiakr.open.qdk4j.util.QiakrStringUtil;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * www.qiakr.com
@@ -10,6 +13,9 @@ import com.yiguo.qiakr.open.qdk4j.util.QiakrStringUtil;
  *
  * @author yhzdys
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 public final class GetBrandListReq extends BaseReq {
     private static final long serialVersionUID = 1L;
     private String fuzzyKeyword;
@@ -24,32 +30,5 @@ public final class GetBrandListReq extends BaseReq {
         if (this.index == null || this.length == null) {
             throw new QiakrApiException("index and length may not be null");
         }
-    }
-
-    public String getFuzzyKeyword() {
-        return fuzzyKeyword;
-    }
-
-    public GetBrandListReq setFuzzyKeyword(String fuzzyKeyword) {
-        this.fuzzyKeyword = fuzzyKeyword;
-        return this;
-    }
-
-    public Integer getIndex() {
-        return index;
-    }
-
-    public GetBrandListReq setIndex(Integer index) {
-        this.index = index;
-        return this;
-    }
-
-    public Integer getLength() {
-        return length;
-    }
-
-    public GetBrandListReq setLength(Integer length) {
-        this.length = length;
-        return this;
     }
 }

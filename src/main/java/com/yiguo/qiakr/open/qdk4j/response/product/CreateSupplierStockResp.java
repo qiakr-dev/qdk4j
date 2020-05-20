@@ -1,6 +1,8 @@
 package com.yiguo.qiakr.open.qdk4j.response.product;
 
 import com.yiguo.qiakr.open.qdk4j.response.BaseResp;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * www.qiakr.com
@@ -8,16 +10,9 @@ import com.yiguo.qiakr.open.qdk4j.response.BaseResp;
  *
  * @author yhzdys
  */
+@Getter
+@Setter
 public final class CreateSupplierStockResp extends BaseResp {
     private static final long serialVersionUID = 1L;
     private Long productId;
-
-    public Long getProductId() {
-        return productId;
-    }
-
-    public CreateSupplierStockResp setProductId(Long productId) {
-        this.productId = productId;
-        return this;
-    }
 }

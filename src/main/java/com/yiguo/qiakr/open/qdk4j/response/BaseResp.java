@@ -2,6 +2,8 @@ package com.yiguo.qiakr.open.qdk4j.response;
 
 import com.alibaba.fastjson.JSON;
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -12,26 +14,12 @@ import java.io.Serializable;
  *
  * @author yhzdys
  */
+@Getter
+@Setter
 public class BaseResp implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer code;
     private String msg;
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
 
     public String toJSONStr() {
         return JSON.toJSONString(this);
