@@ -1,4 +1,4 @@
-package com.yiguo.qiakr.open.qdk4j.request.order;
+package com.yiguo.qiakr.open.qdk4j.request.customer;
 
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
@@ -15,20 +15,14 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public final class GetOrderListReq extends BaseReq {
+public final class GetCustomerCouponFlowReq extends BaseReq {
     private static final long serialVersionUID = 1L;
-    private String orderCode;
-    private Long storeId;
-    private String storeExtCode;
-    private Integer deliveryType;
-    private Integer deliverySite;
-    private Integer status;
-    private String payTimeFrom;
-    private String payTimeTo;
-    private String pickupTimeFrom;
-    private String pickupTimeTo;
-    private String updateTimeFrom;
-    private String updateTimeTo;
+    private String actionTimeFrom;
+    private String actionTimeTo;
+    private String customerWeixinOpenId;
+    private String customerPhone;
+    private String customerExtNo;
+    private Byte couponStatus;
     private Integer index;
     private Integer length;
 

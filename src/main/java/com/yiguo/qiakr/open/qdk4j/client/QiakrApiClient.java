@@ -11,20 +11,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  * 洽客api客户端
  *
  * @author yhzdys
  */
 public final class QiakrApiClient {
-    private static final Logger logger = LoggerFactory.getLogger(QiakrApiClient.class);
-    private String appId;
-    private String appSecret;
-    private String profile;
-    private String api;
-    private boolean enLog;
-    private boolean checkResp;
+    private static Logger logger = null;
+    private String appId = "";
+    private String appSecret = "";
+    private String profile = "prod";
+    private String api = "http://api.qiakr.com/external";
+    private boolean enLog = false;
+    private boolean checkResp = false;
 
     public void setAppId(String appId) {
         this.appId = appId;
@@ -36,35 +36,35 @@ public final class QiakrApiClient {
 
     public void setProfile(String profile) {
         this.profile = profile;
-        switch (profile) {
-            case "prod":
-                this.api = "http://api.qiakr.com/external";
-                break;
-            case "dev1":
-                this.api = "http://apidev.ekeban.com/external";
-                break;
-            case "dev2":
-                this.api = "http://apidev2.ekeban.com/external";
-                break;
-            case "qa1":
-                this.api = "http://open.ekeban.com/external";
-                break;
-            case "qa2":
-                this.api = "http://open2.ekeban.com/external";
-                break;
-            default:
-                throw new QiakrApiException("unexpected profile: " + profile);
+        if ("prod".equals(profile)) {
+            this.api = "http://api.qiakr.com/external";
+        } else if ("dev1".equals(profile)) {
+            this.api = "http://apidev.ekeban.com/external";
+        } else if ("dev2".equals(profile)) {
+            this.api = "http://apidev2.ekeban.com/external";
+        } else if ("qa1".equals(profile)) {
+            this.api = "http://open.ekeban.com/external";
+        } else if ("qa2".equals(profile)) {
+            this.api = "http://open2.ekeban.com/external";
+        } else {
+            throw new QiakrApiException("unexpected profile: " + profile);
         }
     }
 
     public void setEnLog(boolean enLog) {
         this.enLog = enLog;
+        if (enLog) {
+            logger = LoggerFactory.getLogger(QiakrApiClient.class);
+        }
     }
 
     public void setCheckResp(boolean checkResp) {
         this.checkResp = checkResp;
     }
 
+    /**
+     * 获取洽客api访问令牌
+     */
     AccessTokenResp getAccessToken() {
         AccessTokenReq req = new AccessTokenReq(this.appId, this.appSecret);
         req.checkReq();
@@ -80,6 +80,15 @@ public final class QiakrApiClient {
         return resp;
     }
 
+    /**
+     * 开始请求洽客api接口
+     *
+     * @param path        接口地址
+     * @param accessToken 访问令牌
+     * @param req         请求数据对象
+     * @param feature     序列化方式
+     * @param respClazz   返回数据对象
+     */
     public <T extends BaseReq, R extends BaseResp> R doRequest(String path,
                                                                String accessToken,
                                                                T req,

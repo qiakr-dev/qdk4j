@@ -9,35 +9,6 @@
 ##### &emsp;&emsp;JDK版本：Oracle JDK1.7 +
 
 ***
-#### 修改Maven settings.xml
-~~~xml
-<servers>
-    <server>
-        <id>qiakr</id>
-        <username>qiakr-dev</username>
-        <password>eb1c513731eae5bb2c044e243d988b01dc6d2d68</password>
-    </server>
-</servers>
-~~~
-#### 修改pom.xml
-~~~xml
-<repositories>
-    <repository>
-        <id>qiakr</id>
-        <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
-    </repository>
-</repositories>
-
-<dependencies>
-    <dependency>
-        <groupId>com.yiguo.qiakr</groupId>
-        <artifactId>qdk4j</artifactId>
-        <version>1.2.3.RELEASE</version>
-    </dependency>
-</dependencies>
-~~~
-
-***
 #### Java原生配置
 ~~~java
 // 初始化ApiClient
@@ -233,6 +204,10 @@ System.out.println(resp10.toJSONStr());
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.4.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.新增获取优惠券流水接口
+###### &emsp;&emsp;&emsp;2.新增核销优惠券接口
+
 ##### &emsp;1.2.3.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.QiakrApiClient构造函数提供默认值
 

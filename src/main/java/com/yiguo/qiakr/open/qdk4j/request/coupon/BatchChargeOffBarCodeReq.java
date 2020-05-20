@@ -1,4 +1,4 @@
-package com.yiguo.qiakr.open.qdk4j.request.customer;
+package com.yiguo.qiakr.open.qdk4j.request.coupon;
 
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
@@ -18,17 +18,17 @@ import java.util.List;
 @Getter
 @Setter
 @Accessors(chain = true)
-public final class BatchUpdateCustomerVipLevelReq extends BaseReq {
+public final class BatchChargeOffBarCodeReq extends BaseReq {
     private static final long serialVersionUID = 1L;
-    private List<UpdateCustomerVipLevelReq> customerVipLevelList;
+    private List<ChargeOffBarCodeReq> couponList;
 
     @Override
     public void checkReq() {
-        if (QiakrCollectionUtil.isEmpty(this.customerVipLevelList)) {
-            throw new QiakrApiException("customerVipLevelList may not be null");
+        if (QiakrCollectionUtil.isEmpty(this.couponList)) {
+            throw new QiakrApiException("couponList may not be null");
         }
-        for (UpdateCustomerVipLevelReq updateCustomerVipLevelReq : this.customerVipLevelList) {
-            updateCustomerVipLevelReq.checkReq();
+        for (ChargeOffBarCodeReq req : this.couponList) {
+            req.checkReq();
         }
     }
 }

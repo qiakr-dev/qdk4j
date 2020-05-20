@@ -1,4 +1,4 @@
-package com.yiguo.qiakr.open.qdk4j.request.product;
+package com.yiguo.qiakr.open.qdk4j.request.coupon;
 
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
@@ -16,14 +16,15 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public final class GetCategoryListReq extends BaseReq {
+public class ChargeOffBarCodeReq extends BaseReq {
     private static final long serialVersionUID = 1L;
-    private String fuzzyKeyword;
+    private String barCode;
+    private String extOrderCode;
 
     @Override
     public void checkReq() {
-        if (QiakrStringUtil.isEmpty(this.fuzzyKeyword)) {
-            throw new QiakrApiException("fuzzyKeyword may not be null");
+        if (QiakrStringUtil.isEmpty(this.barCode)) {
+            throw new QiakrApiException("barCode may not be null");
         }
     }
 }

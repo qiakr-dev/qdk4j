@@ -3,15 +3,21 @@ package com.yiguo.qiakr.open.qdk4j.request.product;
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 import com.yiguo.qiakr.open.qdk4j.util.QiakrStringUtil;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.math.BigDecimal;
 
 /**
- * www.qiakr.com Inc.
+ * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
  *
  * @author yhzdys
  */
+@Getter
+@Setter
+@Accessors(chain = true)
 public final class UpdateSupplierStockSkuReq extends BaseReq {
     private static final long serialVersionUID = 1L;
     private String skuCode;
@@ -33,41 +39,5 @@ public final class UpdateSupplierStockSkuReq extends BaseReq {
         if (this.skuCount != null && this.skuCount < 0) {
             throw new QiakrApiException("skuCount must be greater than 0");
         }
-    }
-
-    public String getSkuCode() {
-        return skuCode;
-    }
-
-    public UpdateSupplierStockSkuReq setSkuCode(String skuCode) {
-        this.skuCode = skuCode;
-        return this;
-    }
-
-    public String getShapeCode() {
-        return shapeCode;
-    }
-
-    public UpdateSupplierStockSkuReq setShapeCode(String shapeCode) {
-        this.shapeCode = shapeCode;
-        return this;
-    }
-
-    public Integer getSkuCount() {
-        return skuCount;
-    }
-
-    public UpdateSupplierStockSkuReq setSkuCount(Integer skuCount) {
-        this.skuCount = skuCount;
-        return this;
-    }
-
-    public BigDecimal getSkuPrice() {
-        return skuPrice;
-    }
-
-    public UpdateSupplierStockSkuReq setSkuPrice(BigDecimal skuPrice) {
-        this.skuPrice = skuPrice;
-        return this;
     }
 }
