@@ -1,4 +1,4 @@
-package com.yiguo.qiakr.open.qdk4j.request.coupon;
+package com.yiguo.qiakr.open.qdk4j.request.customer;
 
 import com.yiguo.qiakr.open.qdk4j.exception.QiakrApiException;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;

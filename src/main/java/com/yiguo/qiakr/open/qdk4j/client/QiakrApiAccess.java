@@ -5,9 +5,9 @@ import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
 import com.yiguo.qiakr.open.qdk4j.request.coupon.BatchChargeOffBarCodeReq;
 import com.yiguo.qiakr.open.qdk4j.request.coupon.BatchChargeOffCouponReq;
 import com.yiguo.qiakr.open.qdk4j.request.coupon.ChargeOffCouponReq;
-import com.yiguo.qiakr.open.qdk4j.request.coupon.GetCustomerCouponFlowReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerPointReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerVipLevelReq;
+import com.yiguo.qiakr.open.qdk4j.request.customer.GetCustomerCouponFlowReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.BatchImportExtOrderReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.GetOrderListReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.GetRefundOrderListReq;
@@ -19,9 +19,9 @@ import com.yiguo.qiakr.open.qdk4j.request.product.GetBrandListReq;
 import com.yiguo.qiakr.open.qdk4j.request.product.GetCategoryListReq;
 import com.yiguo.qiakr.open.qdk4j.response.BaseResp;
 import com.yiguo.qiakr.open.qdk4j.response.auth.AccessTokenResp;
-import com.yiguo.qiakr.open.qdk4j.response.coupon.GetCustomerCouponFlowResp;
 import com.yiguo.qiakr.open.qdk4j.response.customer.BatchUpdateCustomerPointResp;
 import com.yiguo.qiakr.open.qdk4j.response.customer.BatchUpdateCustomerVipLevelResp;
+import com.yiguo.qiakr.open.qdk4j.response.customer.GetCustomerCouponFlowResp;
 import com.yiguo.qiakr.open.qdk4j.response.order.BatchImportExtOrderResp;
 import com.yiguo.qiakr.open.qdk4j.response.order.GetOrderListResp;
 import com.yiguo.qiakr.open.qdk4j.response.order.GetRefundOrderListResp;
@@ -98,6 +98,12 @@ public class QiakrApiAccess {
         );
     }
 
+    public GetCustomerCouponFlowResp getCustomerCouponFlow(GetCustomerCouponFlowReq req, String accessToken) {
+        return this.client.doRequest(
+                "/customer/getCustomerCouponFlow.json", accessToken, req, this.STR_FEATURE, GetCustomerCouponFlowResp.class
+        );
+    }
+
     /* 订单相关接口 */
     public BatchImportExtOrderResp batchImportExtOrder(BatchImportExtOrderReq req, String accessToken) {
         return this.client.doRequest(
@@ -124,12 +130,6 @@ public class QiakrApiAccess {
     }
 
     /* 优惠券 */
-    public GetCustomerCouponFlowResp getCustomerCouponFlow(GetCustomerCouponFlowReq req, String accessToken) {
-        return this.client.doRequest(
-                "/coupon/getCustomerCouponFlow.json", accessToken, req, this.STR_FEATURE, GetCustomerCouponFlowResp.class
-        );
-    }
-
     public BaseResp chargeOffCoupon(ChargeOffCouponReq req, String accessToken) {
         return this.client.doRequest(
                 "/coupon/chargeOffCoupon.json", accessToken, req, null, BaseResp.class

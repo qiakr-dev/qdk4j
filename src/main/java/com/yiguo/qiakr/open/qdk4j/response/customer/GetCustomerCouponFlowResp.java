@@ -1,6 +1,7 @@
-package com.yiguo.qiakr.open.qdk4j.response.coupon;
+package com.yiguo.qiakr.open.qdk4j.response.customer;
 
 import com.yiguo.qiakr.open.qdk4j.response.BaseResp;
+import com.yiguo.qiakr.open.qdk4j.response.coupon.GetCustomerCouponResp;
 import lombok.Getter;
 import lombok.Setter;
 
