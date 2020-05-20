@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
  * @author yhzdys
  */
 public final class QiakrApiClient {
-    private static final Logger logger = LoggerFactory.getLogger(QiakrApiClient.class);
+    private static Logger logger = null;
     private String appId;
     private String appSecret;
     private String profile;
@@ -59,6 +59,9 @@ public final class QiakrApiClient {
 
     public void setEnLog(boolean enLog) {
         this.enLog = enLog;
+        if (enLog) {
+            logger = LoggerFactory.getLogger(QiakrApiClient.class);
+        }
     }
 
     public void setCheckResp(boolean checkResp) {
