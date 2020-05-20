@@ -23,6 +23,9 @@ public class BaseReq implements Serializable {
     }
 
     public String toJSONStr(SerializerFeature feature) {
+        if (feature == null) {
+            return this.toJSONStr();
+        }
         return JSON.toJSONString(this, feature);
     }
 }

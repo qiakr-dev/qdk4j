@@ -20,10 +20,14 @@
     </properties>
 
     <distributionManagement>
-        <repository>
-            <id>qdk4j</id>
-            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
-        </repository>
+        <!--        <repository>-->
+        <!--            <id>qdk4j</id>-->
+        <!--            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>-->
+        <!--        </repository>-->
+        <!--        <repository>-->
+        <!--            <id>qiakr_release</id>-->
+        <!--            <url>http://www.ekeban.com:8088/nexus/content/repositories/releases/</url>-->
+        <!--        </repository>-->
     </distributionManagement>
 
     <dependencies>
