@@ -19,12 +19,12 @@ import org.slf4j.LoggerFactory;
  */
 public final class QiakrApiClient {
     private static Logger logger = null;
-    private String appId;
-    private String appSecret;
-    private String profile;
-    private String api;
-    private boolean enLog;
-    private boolean checkResp;
+    private String appId = "";
+    private String appSecret = "";
+    private String profile = "prod";
+    private String api = "http://api.qiakr.com/external";
+    private boolean enLog = false;
+    private boolean checkResp = false;
 
     public void setAppId(String appId) {
         this.appId = appId;
