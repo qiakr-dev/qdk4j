@@ -2,6 +2,10 @@ package com.yiguo.qiakr.open.qdk4j.client;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.yiguo.qiakr.open.qdk4j.request.BaseReq;
+import com.yiguo.qiakr.open.qdk4j.request.coupon.BatchChargeOffBarCodeReq;
+import com.yiguo.qiakr.open.qdk4j.request.coupon.BatchChargeOffCouponReq;
+import com.yiguo.qiakr.open.qdk4j.request.coupon.ChargeOffCouponReq;
+import com.yiguo.qiakr.open.qdk4j.request.coupon.GetCustomerCouponFlowReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerPointReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerVipLevelReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.BatchImportExtOrderReq;
@@ -15,6 +19,7 @@ import com.yiguo.qiakr.open.qdk4j.request.product.GetBrandListReq;
 import com.yiguo.qiakr.open.qdk4j.request.product.GetCategoryListReq;
 import com.yiguo.qiakr.open.qdk4j.response.BaseResp;
 import com.yiguo.qiakr.open.qdk4j.response.auth.AccessTokenResp;
+import com.yiguo.qiakr.open.qdk4j.response.coupon.GetCustomerCouponFlowResp;
 import com.yiguo.qiakr.open.qdk4j.response.customer.BatchUpdateCustomerPointResp;
 import com.yiguo.qiakr.open.qdk4j.response.customer.BatchUpdateCustomerVipLevelResp;
 import com.yiguo.qiakr.open.qdk4j.response.order.BatchImportExtOrderResp;
@@ -115,6 +120,31 @@ public class QiakrApiAccess {
     public BaseResp updateOrderToDeliveryStatus(UpdateOrderToDeliveryStatusReq req, String accessToken) {
         return this.client.doRequest(
                 "/order/updateOrderToDeliveryStatus.json", accessToken, req, this.STR_FEATURE, BaseResp.class
+        );
+    }
+
+    /* 优惠券 */
+    public GetCustomerCouponFlowResp getCustomerCouponFlow(GetCustomerCouponFlowReq req, String accessToken) {
+        return this.client.doRequest(
+                "/coupon/getCustomerCouponFlow.json", accessToken, req, null, GetCustomerCouponFlowResp.class
+        );
+    }
+
+    public BaseResp chargeOffCoupon(ChargeOffCouponReq req, String accessToken) {
+        return this.client.doRequest(
+                "/coupon/chargeOffCoupon.json", accessToken, req, null, BaseResp.class
+        );
+    }
+
+    public BaseResp batchChargeOffCoupon(BatchChargeOffCouponReq req, String accessToken) {
+        return this.client.doRequest(
+                "/coupon/batchChargeOffCoupon.json", accessToken, req, null, BaseResp.class
+        );
+    }
+
+    public BaseResp batchChargeOffBarCode(BatchChargeOffBarCodeReq req, String accessToken) {
+        return this.client.doRequest(
+                "/coupon/batchChargeOffBarCode.json", accessToken, req, null, BaseResp.class
         );
     }
 }
