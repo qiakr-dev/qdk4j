@@ -215,6 +215,9 @@ System.out.println(resp21.toJSONStr());
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.5.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.返回值检测bug修复
+
 ##### &emsp;1.2.4.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.新增获取优惠券流水接口
 ###### &emsp;&emsp;&emsp;2.新增核销优惠券接口
