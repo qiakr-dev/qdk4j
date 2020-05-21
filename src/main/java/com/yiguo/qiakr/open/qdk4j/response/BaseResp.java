@@ -29,11 +29,12 @@ public class BaseResp implements Serializable {
         if (this.code == null) {
             throw new QiakrApiException("incorrect resp code: " + this.code + " msg: " + this.msg);
         }
-        if ((this.code == 0 || this.code == 1000)) {
+        if (this.code == 0 || this.code == 1000) {
             return;
         }
         if (this.code == 1003) {
             throw new QiakrApiException("invalid accessToken");
         }
+        throw new QiakrApiException("incorrect resp code: " + this.code + " msg: " + this.msg);
     }
 }
