@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yiguo.qiakr</groupId>
     <artifactId>qdk4j</artifactId>
-    <version>1.2.5.RELEASE</version>
+    <version>1.2.6.SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>QiakrApi Development Kit(QDK)</description>
 
@@ -20,14 +20,14 @@
     </properties>
 
     <distributionManagement>
-        <!--        <repository>-->
-        <!--            <id>qdk4j</id>-->
-        <!--            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>-->
-        <!--        </repository>-->
-        <!--        <repository>-->
-        <!--            <id>qiakr_release</id>-->
-        <!--            <url>http://www.ekeban.com:8088/nexus/content/repositories/releases/</url>-->
-        <!--        </repository>-->
+        <repository>
+            <id>qdk4j</id>
+            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
+        </repository>
+        <snapshotRepository>
+            <id>qiakr_sn</id>
+            <url>http://www.ekeban.com:8088/nexus/content/repositories/qiakr_sn/</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <dependencies>
