@@ -10,6 +10,8 @@ import com.yiguo.qiakr.open.qdk4j.util.QiakrStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.UUID;
+
 /**
  * www.qiakr.com
  * Copyright (c) 2014-2020 All Rights Reserved.
@@ -70,10 +72,15 @@ public final class QiakrApiClient {
         req.checkReq();
         String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
         String reqBody = req.toJSONStr();
+        String UUID = null;
         if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+            UUID = this.genUUID();
+            logger.info("[洽客API]-[{}] [{}]请求数据: {}", this.profile, UUID, reqBody);
         }
         AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
+        if (this.enLog) {
+            logger.info("[洽客API]-[{}] [{}]返回数据: {}", this.profile, UUID, resp.toJSONStr());
+        }
         if (this.checkResp) {
             resp.checkResp();
         }
@@ -104,13 +111,25 @@ public final class QiakrApiClient {
         req.checkReq();
         String reqUrl = this.api + path + "?appId=" + this.appId + "&accessToken=" + accessToken;
         String reqBody = req.toJSONStr(feature);
+        String UUID = null;
         if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+            UUID = this.genUUID();
+            logger.info("[洽客API]-[{}] [{}]请求数据: {}", this.profile, UUID, reqBody);
         }
         R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
+        if (this.enLog) {
+            logger.info("[洽客API]-[{}] [{}]返回数据: {}", this.profile, UUID, resp.toJSONStr());
+        }
         if (this.checkResp) {
             resp.checkResp();
         }
         return resp;
+    }
+
+    /**
+     * 生成请求唯一ID
+     */
+    private String genUUID() {
+        return UUID.randomUUID().toString().replaceAll("-", "").toUpperCase();
     }
 }
