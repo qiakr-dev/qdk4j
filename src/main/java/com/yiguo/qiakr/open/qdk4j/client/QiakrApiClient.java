@@ -77,11 +77,11 @@ public final class QiakrApiClient {
         String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
         String reqBody = req.toJSONStr();
         if (this.enLog) {
-            logger.info("[洽客API|{}] 请求数据: {}", this.profile, reqBody);
+            logger.info("[洽客API({})] 请求数据: {}", this.profile, reqBody);
         }
         AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
         if (this.enLog) {
-            logger.info("[洽客API|{}] 返回数据: {}", this.profile, resp.toJSONStr());
+            logger.info("[洽客API({})] 返回数据: {}", this.profile, resp.toJSONStr());
         }
         if (this.checkResp) {
             resp.checkResp();
@@ -114,11 +114,11 @@ public final class QiakrApiClient {
         String reqUrl = this.api + path + "?appId=" + this.appId + "&accessToken=" + accessToken;
         String reqBody = req.toJSONStr(feature);
         if (this.enLog) {
-            logger.info("[洽客API|{}] 请求数据: {}", this.profile, reqBody);
+            logger.info("[洽客API({})] 请求数据: {}", this.profile, reqBody);
         }
         R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
         if (this.enLog) {
-            logger.info("[洽客API|{}] 返回数据: {}", this.profile, resp.toJSONStr());
+            logger.info("[洽客API({})] 返回数据: {}", this.profile, resp.toJSONStr());
         }
         if (this.checkResp) {
             resp.checkResp();
