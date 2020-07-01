@@ -18,22 +18,26 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public final class UpdateCustomerPointReq extends BaseReq {
     private static final long serialVersionUID = 1L;
-    private Long qid;
-    private String customerWeixinOpenId;
+    private Long customerId;
+    private String customerExtCode;
     private String customerPhone;
-    private Integer point;
-    private String referCode;
-    private Integer actionType;
-    private String remark;
-    private Integer lessZero;
+    private String platFormCode;
+    private Integer referType;
+    private Integer changePoint;
+    private String externalFlowCode;
+    private String changeReason;
 
     @Override
     public void checkReq() {
-        if (this.qid == null && QiakrStringUtil.isAllEmpty(this.customerWeixinOpenId, this.customerPhone)) {
-            throw new QiakrApiException("qid or customerWeixinOpenId or customerPhone may not be null");
+        if (this.customerId == null
+                && QiakrStringUtil.isAllEmpty(this.customerExtCode, this.customerPhone)) {
+            throw new QiakrApiException("customer data may not be null");
         }
-        if (this.point == null || this.point == 0) {
-            throw new QiakrApiException("point may not be null or zero");
+        if (this.changePoint == null || this.changePoint == 0) {
+            throw new QiakrApiException("changePoint may not be null");
+        }
+        if (QiakrStringUtil.isEmpty(externalFlowCode)) {
+            throw new QiakrApiException("externalFlowCode may not be null");
         }
     }
 }

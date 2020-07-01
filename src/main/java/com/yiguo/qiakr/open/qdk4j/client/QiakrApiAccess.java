@@ -8,6 +8,7 @@ import com.yiguo.qiakr.open.qdk4j.request.coupon.ChargeOffCouponReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerPointReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.BatchUpdateCustomerVipLevelReq;
 import com.yiguo.qiakr.open.qdk4j.request.customer.GetCustomerCouponFlowReq;
+import com.yiguo.qiakr.open.qdk4j.request.customer.UpdateCustomerPointReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.BatchImportExtOrderReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.GetOrderListReq;
 import com.yiguo.qiakr.open.qdk4j.request.order.GetRefundOrderListReq;
@@ -89,6 +90,12 @@ public class QiakrApiAccess {
     public BatchUpdateCustomerPointResp batchUpdateCustomerPoint(BatchUpdateCustomerPointReq req, String accessToken) {
         return this.client.doRequest(
                 "/customer/batchUpdateCustomerPoint.json", accessToken, req, null, BatchUpdateCustomerPointResp.class
+        );
+    }
+
+    public BaseResp updateCustomerPoint(UpdateCustomerPointReq req, String accessToken) {
+        return this.client.doRequest(
+                "/v2/customer/updateCustomerPoint.json", accessToken, req, null, BaseResp.class
         );
     }
 
