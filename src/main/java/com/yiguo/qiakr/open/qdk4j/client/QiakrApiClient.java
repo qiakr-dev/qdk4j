@@ -35,19 +35,25 @@ public final class QiakrApiClient {
     }
 
     public void setProfile(String profile) {
-        this.profile = profile;
-        if ("prod".equals(profile)) {
-            this.api = "http://api.qiakr.com/external";
-        } else if ("dev1".equals(profile)) {
-            this.api = "http://apidev.ekeban.com/external";
-        } else if ("dev2".equals(profile)) {
-            this.api = "http://apidev2.ekeban.com/external";
-        } else if ("qa1".equals(profile)) {
-            this.api = "http://open.ekeban.com/external";
-        } else if ("qa2".equals(profile)) {
-            this.api = "http://open2.ekeban.com/external";
-        } else {
-            throw new QiakrApiException("unexpected profile: " + profile);
+        this.profile = profile.toUpperCase();
+        switch (profile) {
+            case "prod":
+                this.api = "http://api.qiakr.com/external";
+                break;
+            case "dev1":
+                this.api = "http://apidev.ekeban.com/external";
+                break;
+            case "dev2":
+                this.api = "http://apidev2.ekeban.com/external";
+                break;
+            case "qa1":
+                this.api = "http://open.ekeban.com/external";
+                break;
+            case "qa2":
+                this.api = "http://open2.ekeban.com/external";
+                break;
+            default:
+                throw new QiakrApiException("unexpected profile: " + profile);
         }
     }
 
@@ -71,9 +77,12 @@ public final class QiakrApiClient {
         String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
         String reqBody = req.toJSONStr();
         if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+            logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
         }
         AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
+        if (this.enLog) {
+            logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
+        }
         if (this.checkResp) {
             resp.checkResp();
         }
@@ -105,9 +114,12 @@ public final class QiakrApiClient {
         String reqUrl = this.api + path + "?appId=" + this.appId + "&accessToken=" + accessToken;
         String reqBody = req.toJSONStr(feature);
         if (this.enLog) {
-            logger.info("QiakrAPI[{}]: {} reqData: {}", this.profile, reqUrl, reqBody);
+            logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
         }
         R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
+        if (this.enLog) {
+            logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
+        }
         if (this.checkResp) {
             resp.checkResp();
         }

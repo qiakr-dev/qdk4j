@@ -18,9 +18,9 @@ client.setAppSecret("274686640ecc45f2a6f2558ab9d41a64");
 // 对接环境["dev1","dev2","qa1","qa2","prod"]，默认"prod"
 client.setProfile("prod");
 // 开启log输出(slf4j)，默认"false"
-client.setCheckResp(true);
-// 自动检查接口返回状态码，异常状态抛出QiakrApiException，默认"false"
 client.setEnLog(true);
+// 自动检查接口返回状态码，异常状态抛出QiakrApiException，默认"false"
+client.setCheckResp(true);
 
 // 初始化ApiAccess
 QiakrApiAccess qiakrApiAccess = new QiakrApiAccess();
@@ -215,6 +215,9 @@ System.out.println(resp21.toJSONStr());
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.6.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.新增更新会员等级、积分接口
+
 ##### &emsp;1.2.5.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.返回值检测bug修复
 

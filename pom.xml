@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.yiguo.qiakr</groupId>
     <artifactId>qdk4j</artifactId>
-    <version>1.2.5.RELEASE</version>
+    <version>1.2.6.RELEASE</version>
     <packaging>jar</packaging>
     <description>QiakrApi Development Kit(QDK)</description>
 
@@ -14,20 +14,16 @@
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
 
         <lombok.version>1.18.12</lombok.version>
-        <fastjson.version>1.2.68</fastjson.version>
+        <fastjson.version>1.2.72</fastjson.version>
         <slf4j-api.version>1.7.30</slf4j-api.version>
         <httpclient.version>4.5.12</httpclient.version>
     </properties>
 
     <distributionManagement>
-        <!--        <repository>-->
-        <!--            <id>qdk4j</id>-->
-        <!--            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>-->
-        <!--        </repository>-->
-        <!--        <repository>-->
-        <!--            <id>qiakr_release</id>-->
-        <!--            <url>http://www.ekeban.com:8088/nexus/content/repositories/releases/</url>-->
-        <!--        </repository>-->
+        <repository>
+            <id>qdk4j</id>
+            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
+        </repository>
     </distributionManagement>
 
     <dependencies>
