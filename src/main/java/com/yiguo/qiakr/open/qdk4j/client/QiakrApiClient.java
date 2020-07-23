@@ -35,8 +35,8 @@ public final class QiakrApiClient {
     }
 
     public void setProfile(String profile) {
-        this.profile = profile.toUpperCase();
-        switch (profile) {
+        this.profile = profile.toLowerCase();
+        switch (this.profile) {
             case "prod":
                 this.api = "http://api.qiakr.com/external";
                 break;
