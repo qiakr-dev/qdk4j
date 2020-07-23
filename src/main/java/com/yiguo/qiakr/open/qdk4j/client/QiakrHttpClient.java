@@ -36,9 +36,7 @@ public final class QiakrHttpClient {
     }
 
     private static void closeHttpClient(CloseableHttpClient httpClient) {
-        if (httpClient == null) {
-            return;
-        }
+        if (httpClient == null) return;
         try {
             httpClient.close();
         } catch (Exception e) {
