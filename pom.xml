@@ -21,9 +21,8 @@
 
     <distributionManagement>
         <repository>
-            <id>qiakr_sn</id>
-            <name>qiakr_sn</name>
-            <url>http://www.ekeban.com:8088/nexus/content/repositories/qiakr_sn/</url>
+            <id>qdk4j</id>
+            <url>https://maven.pkg.github.com/qiakr-dev/qdk4j</url>
         </repository>
     </distributionManagement>
 
