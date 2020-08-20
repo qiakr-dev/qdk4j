@@ -28,14 +28,11 @@ public final class QiakrRespHandler {
                 if (resp == null) {
                     throw new QiakrApiException("QiakrAPI resp is null");
                 }
-                int status = resp.getStatusLine().getStatusCode();
-                if (status < 200 || status >= 300) {
-                    throw new QiakrApiException("unexpected QiakrAPI resp status: " + status);
-                }
                 HttpEntity respEntity = resp.getEntity();
                 String respData = EntityUtils.toString(respEntity, StandardCharsets.UTF_8);
                 if (QiakrStringUtil.isEmpty(respData)) {
-                    throw new QiakrApiException("QiakrAPI api resp is empty");
+                    int status = resp.getStatusLine().getStatusCode();
+                    throw new QiakrApiException("QiakrAPI api resp is empty, http status: " + status);
                 }
                 return JSONObject.parseObject(respData, clazz);
             }
