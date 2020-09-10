@@ -215,6 +215,9 @@ System.out.println(resp21.toJSONStr());
 
 ***
 ### ReleaseNote
+##### &emsp;1.2.7.RAELEASE:&emsp;
+###### &emsp;&emsp;&emsp;1.优化代码逻辑
+
 ##### &emsp;1.2.6.RAELEASE:&emsp;
 ###### &emsp;&emsp;&emsp;1.新增更新会员等级、积分接口
 
