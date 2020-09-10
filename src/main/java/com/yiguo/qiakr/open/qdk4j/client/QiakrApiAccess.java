@@ -41,7 +41,6 @@ import lombok.Setter;
  */
 @Setter
 public class QiakrApiAccess {
-    private final SerializerFeature STR_FEATURE = SerializerFeature.WriteNonStringValueAsString;
     private QiakrApiClient client;
 
     public AccessTokenResp getAccessToken() {
@@ -58,7 +57,7 @@ public class QiakrApiAccess {
     /* 商品相关接口 */
     public GetBrandListResp getBrandList(GetBrandListReq req, String accessToken) {
         return this.client.doRequest(
-                "/brand/getBrandList.json", accessToken, req, this.STR_FEATURE, GetBrandListResp.class
+                "/brand/getBrandList.json", accessToken, req, SerializerFeature.WriteNonStringValueAsString, GetBrandListResp.class
         );
     }
 
@@ -70,7 +69,7 @@ public class QiakrApiAccess {
 
     public CreateSupplierStockResp createSupplierStock(CreateSupplierStockReq req, String accessToken) {
         return this.client.doRequest(
-                "/stock/createSupplierStock.json", accessToken, req, this.STR_FEATURE, CreateSupplierStockResp.class
+                "/stock/createSupplierStock.json", accessToken, req, SerializerFeature.WriteNonStringValueAsString, CreateSupplierStockResp.class
         );
     }
 
@@ -107,7 +106,7 @@ public class QiakrApiAccess {
 
     public GetCustomerCouponFlowResp getCustomerCouponFlow(GetCustomerCouponFlowReq req, String accessToken) {
         return this.client.doRequest(
-                "/customer/getCustomerCouponFlow.json", accessToken, req, this.STR_FEATURE, GetCustomerCouponFlowResp.class
+                "/customer/getCustomerCouponFlow.json", accessToken, req, SerializerFeature.WriteNonStringValueAsString, GetCustomerCouponFlowResp.class
         );
     }
 
@@ -126,13 +125,13 @@ public class QiakrApiAccess {
 
     public GetRefundOrderListResp getRefundOrderList(GetRefundOrderListReq req, String accessToken) {
         return this.client.doRequest(
-                "/order/getRefundOrderList.json", accessToken, req, this.STR_FEATURE, GetRefundOrderListResp.class
+                "/order/getRefundOrderList.json", accessToken, req, SerializerFeature.WriteNonStringValueAsString, GetRefundOrderListResp.class
         );
     }
 
     public BaseResp updateOrderToDeliveryStatus(UpdateOrderToDeliveryStatusReq req, String accessToken) {
         return this.client.doRequest(
-                "/order/updateOrderToDeliveryStatus.json", accessToken, req, this.STR_FEATURE, BaseResp.class
+                "/order/updateOrderToDeliveryStatus.json", accessToken, req, SerializerFeature.WriteNonStringValueAsString, BaseResp.class
         );
     }
 

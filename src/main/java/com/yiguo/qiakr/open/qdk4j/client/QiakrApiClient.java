@@ -35,8 +35,8 @@ public final class QiakrApiClient {
     }
 
     public void setProfile(String profile) {
-        this.profile = profile.toUpperCase();
-        switch (profile) {
+        this.profile = profile.toLowerCase();
+        switch (this.profile) {
             case "prod":
                 this.api = "http://api.qiakr.com/external";
                 break;
@@ -59,9 +59,7 @@ public final class QiakrApiClient {
 
     public void setEnLog(boolean enLog) {
         this.enLog = enLog;
-        if (enLog) {
-            logger = LoggerFactory.getLogger(QiakrApiClient.class);
-        }
+        if (enLog) logger = LoggerFactory.getLogger(QiakrApiClient.class);
     }
 
     public void setCheckResp(boolean checkResp) {
@@ -76,16 +74,10 @@ public final class QiakrApiClient {
         req.checkReq();
         String reqUrl = this.api + "/thirdPlatform/getAccessToken.json";
         String reqBody = req.toJSONStr();
-        if (this.enLog) {
-            logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
-        }
+        if (this.enLog) logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
         AccessTokenResp resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(AccessTokenResp.class));
-        if (this.enLog) {
-            logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
-        }
-        if (this.checkResp) {
-            resp.checkResp();
-        }
+        if (this.enLog) logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
+        if (this.checkResp) resp.checkResp();
         return resp;
     }
 
@@ -103,26 +95,16 @@ public final class QiakrApiClient {
                                                                T req,
                                                                SerializerFeature feature,
                                                                Class<R> respClazz) {
-        if (req == null) {
-            throw new QiakrApiException("reqData may not be null");
-        }
-        if (QiakrStringUtil.isEmpty(accessToken)) {
-            throw new QiakrApiException("accessToken may not be null");
-        }
+        if (req == null) throw new QiakrApiException("reqData may not be null");
+        if (QiakrStringUtil.isEmpty(accessToken)) throw new QiakrApiException("accessToken may not be null");
         // 请求参数检查，前置拦截非法传参
         req.checkReq();
         String reqUrl = this.api + path + "?appId=" + this.appId + "&accessToken=" + accessToken;
         String reqBody = req.toJSONStr(feature);
-        if (this.enLog) {
-            logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
-        }
+        if (this.enLog) logger.info("洽客接口({}): {} 请求数据: {}", this.profile, reqUrl, reqBody);
         R resp = QiakrHttpClient.doPost(reqUrl, reqBody, QiakrRespHandler.newInst(respClazz));
-        if (this.enLog) {
-            logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
-        }
-        if (this.checkResp) {
-            resp.checkResp();
-        }
+        if (this.enLog) logger.info("洽客接口({}): {} 返回数据: {}", this.profile, reqUrl, resp.toJSONStr());
+        if (this.checkResp) resp.checkResp();
         return resp;
     }
 }
